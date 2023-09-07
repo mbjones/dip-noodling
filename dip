@@ -1,14 +1,21 @@
 #!/bin/bash
 store() {
     file=$1
+    [[ -z "$file" ]] && echo "File must be provided." && exit
     pid=$2
     format=$3
     sha=$(shasum -a 256 ${file} | awk '{print $1}')
     OBJDIR=".dip/objects/${sha:0:2}/${sha:2:2}"
     mkdir -p ${OBJDIR}
     cp ${file} ${OBJDIR}/${sha:4}
-    tag ${sha} ${pid}
-    sysmeta ${file} ${pid} ${format}
+    if [ ! -z "${pid}" ]; # Only tag an object if a PID is provided
+    then
+        tag ${sha} ${pid}
+        if [ ! -z "${format}" ]; # Only create sysmeta if a format is provided
+        then
+            sysmeta ${file} ${pid} ${format}
+        fi
+    fi
     echo ${sha}
 }
 

@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.com"
+  },
+  "@type": "ex:Folder",
+  "so:name": "raw",
+  "prov:atLocation": "raw",
+  "ex:contains": "sha:7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e",
+  "ex:contains": "sha:f60f3dbecc938b5fa329ef7eaf09c13612962ada8e864adcecc3e4b104f685d4",
+  "ex:contains": "sha:599c521e652062bca90071b72ffc9780e97e3bcf3213630b390c0bb703594f60"
+}

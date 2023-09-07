@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "sha:7a1c82e3a1414dd90304cff20098bd0cc94a2134f77ae703b75c1020d4f49ed4",
+  "@type": "so:DataDownload",
+  "ore:aggregatedBy": "sha:7129a7fac461d084afc4476e6b72156fef11b3784286cf698742fb3a6ba7e5f2",
+  "prov:atLocation": "plotobs.csv"
+}

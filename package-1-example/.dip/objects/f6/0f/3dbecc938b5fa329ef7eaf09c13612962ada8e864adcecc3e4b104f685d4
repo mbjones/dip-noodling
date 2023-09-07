@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "sha:123ea45d21c9025a3d0f02de4088d4cb4e7eeb6246748edd883945b430b4a05d",
+  "@type": "so:DataDownload",
+  "ore:aggregatedBy": "sha:7129a7fac461d084afc4476e6b72156fef11b3784286cf698742fb3a6ba7e5f2",
+  "prov:atLocation": "raw/survey_data.csv"
+}
