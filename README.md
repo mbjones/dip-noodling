@@ -1,6 +1,13 @@
-# Distributed Info Package
+# Data Info Package (DIP)
 
-A proposal for a data format.
+Or maybe:
+
+- DIP: Distributed Info Package
+- HIP: Hash Info Package
+- CHIP: Content Hash Info Package
+- SHIP: Semantic Hash Info Package
+
+Noodling on a proposal for a data package format. Needless to say, this ia a work-in-progress and no more.
 
 ## Layout of a package
 
