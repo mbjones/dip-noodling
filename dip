@@ -1,4 +1,5 @@
 #!/bin/bash
+
 store() {
     file=$1
     [[ -z "$file" ]] && echo "File must be provided." && exit
@@ -69,3 +70,61 @@ cat-sysmeta() {
     piddir=".dip/sysmeta/${pidhash:0:2}/${pidhash:2:2}"
     cat ${piddir}/${pidhash:4}
 }
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+case $1 in
+    -s|--store)
+    FILE="$2"
+    PID=$3
+    FORMAT=$4
+    shift # past argument
+    shift # past value
+    shift
+    shift
+    store ${FILE} ${PID} ${FORMAT}
+    exit
+    ;;
+    -c|--cat)
+    CID="$2"
+    shift # past argument
+    shift # past value
+    cat-object ${CID}
+    exit
+    ;;
+    -m|--meta)
+    PID="$2"
+    shift # past argument
+    shift # past value
+    cat-sysmeta ${PID}
+    exit
+    ;;
+    -t|--tag)
+    CID=$2
+    TAG="$3"
+    shift # past argument
+    shift # past value
+    tag ${CID} ${TAG}
+    ;;
+    -l|--list-tags)
+    shift # past argument
+    listtags
+    ;;
+    -h|--help)
+    shift # past argument
+    echo "$0 [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid]"
+    exit
+    ;;
+    -*|--*)
+    echo "Unknown option $1"
+    exit 1
+    ;;
+    *)
+    POSITIONAL_ARGS+=("$1") # save positional arg
+    shift # past argument
+    ;;
+esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
