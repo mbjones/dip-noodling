@@ -97,3 +97,60 @@ package-1-example
     ├── site_data.csv
     └── survey_data.csv
 ```
+
+## Annotation syntax
+
+```json
+$ cat-object 7becd1b7e758b87c25dba4357b2bd298ba0e14dbe546ce88b108696fd93ba6c1
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.com"
+  },
+  "@type": "so:Dataset",
+  "so:name": "example-package",
+  "prov:atLocation": "example-package",
+  "ex:contains": "sha:966515904c84bb95535c62b7865f4be638b0720f183c01ad0d2720c5f60ea2cc",
+  "ex:contains": "sha:f6b5c3fd3082a3c483a705c1ab7988fe690e47232063fc6a70e5cba0ab37968d",
+  "ex:contains": "sha:2b447b5885f9b40c864ea49594a5b31fcb6e2a321c1732346e8296fe14a1dcdc"
+}
+```
+
+```json
+$ cat-object f6b5c3fd3082a3c483a705c1ab7988fe690e47232063fc6a70e5cba0ab37968d
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.com"
+  },
+  "@type": "ex:Folder",
+  "so:name": "raw",
+  "prov:atLocation": "raw",
+  "ex:contains": "sha:7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e",
+  "ex:contains": "sha:f60f3dbecc938b5fa329ef7eaf09c13612962ada8e864adcecc3e4b104f685d4",
+  "ex:contains": "sha:599c521e652062bca90071b72ffc9780e97e3bcf3213630b390c0bb703594f60"
+}
+```
+
+```json
+$ cat-object 7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e
+{
+  "@context": {
+    "so": "http://schema.org/",
+    "sha": "hash://sha256/",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "sha:b2b5c5e08b48339246cd935a1a810c3030518a369c170d8693e59d5a5b58feab",
+  "@type": "so:DataDownload",
+  "ore:aggregatedBy": "sha:7129a7fac461d084afc4476e6b72156fef11b3784286cf698742fb3a6ba7e5f2",
+  "prov:atLocation": "raw/site_data.csv"
+}
+```
+

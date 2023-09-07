@@ -56,3 +56,16 @@ sysmeta() {
         FORMAT_ID=${format} \
         envsubst > ${pidfile}
 }
+
+cat-object() {
+    cid=$1
+    objdir=".dip/objects"
+    cat ${objdir}/${cid:0:2}/${cid:2:2}/${cid:4}
+}
+
+cat-sysmeta() {
+    pid=$1
+    pidhash=$(echo -n ${pid} |shasum -a 256 |awk '{print $1}')
+    piddir=".dip/sysmeta/${pidhash:0:2}/${pidhash:2:2}"
+    cat ${piddir}/${pidhash:4}
+}
