@@ -3,13 +3,10 @@ store() {
     file=$1
     pid=$2
     format=$3
-    OBJDIR='.dip/objects'
     sha=$(shasum -a 256 ${file} | awk '{print $1}')
-    d1=${sha:0:2}
-    d2=${sha:2:2}
-    fn=${sha:4}
-    mkdir -p ${OBJDIR}/${d1}/${d2} 
-    cp ${file} ${OBJDIR}/${d1}/${d2}/${fn}
+    OBJDIR=".dip/objects/${sha:0:2}/${sha:2:2}"
+    mkdir -p ${OBJDIR}
+    cp ${file} ${OBJDIR}/${sha:4}
     tag ${sha} ${pid}
     sysmeta ${file} ${pid} ${format}
     echo ${sha}
@@ -19,7 +16,9 @@ tag() {
     cid=$1
     value=$2
     taghash=$(echo -n ${value} |shasum -a 256 |awk '{print $1}')
-    tagfile=".dip/refs/tags/${taghash}"
+    tagdir=".dip/refs/tags/${taghash:0:2}/${taghash:2:2}"
+    mkdir -p ${tagdir}
+    tagfile="${tagdir}/${taghash:4}"
     echo -n ${cid} > ${tagfile}
     echo " ${value}" >> ${tagfile}
     cat ${tagfile}
@@ -32,7 +31,9 @@ sysmeta() {
     template='../sysmeta-template'
     cid=$(shasum -a 256 ${file} | awk '{print $1}')
     pidhash=$(echo -n ${pid} |shasum -a 256 |awk '{print $1}')
-    pidfile=".dip/sysmeta/${pidhash}"
+    piddir=".dip/sysmeta/${pidhash:0:2}/${pidhash:2:2}"
+    mkdir -p ${piddir}
+    pidfile="${piddir}/${pidhash:4}"
     isodate=$(date +"%Y-%m-%dT%H:%M:%S%z")
     size=$(stat -f "%z" ${file})
     cat ${template} | PID=${pid} \

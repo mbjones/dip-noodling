@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns3:systemMetadata xmlns:ns2="http://ns.dataone.org/service/types/v1" xmlns:ns3="http://ns.dataone.org/service/types/v2.0">
     <serialVersion>1</serialVersion>
-    <identifier>P4</identifier>
+    <identifier>P2</identifier>
     <formatId>text/csv</formatId>
-    <size>146652</size>
-    <checksum algorithm="SHA-256">fb4b3be4ad5fbba57436cc5327391df21802cfc8c14d1db1ab22fb32010189b2</checksum>
+    <size>1638</size>
+    <checksum algorithm="SHA-256">b2b5c5e08b48339246cd935a1a810c3030518a369c170d8693e59d5a5b58feab</checksum>
     <submitter>http://orcid.org/0000-0003-0077-4738</submitter>
     <rightsHolder>http://orcid.org/0000-0003-0077-4738</rightsHolder>
     <accessPolicy>
@@ -18,9 +18,9 @@
         <blockedMemberNode>urn:node:mnUCSB1</blockedMemberNode>
     </replicationPolicy>
     <archived>false</archived>
-    <dateUploaded>2023-09-06T18:31:14-0800</dateUploaded>
-    <dateSysMetadataModified>2023-09-06T18:31:14-0800</dateSysMetadataModified>
+    <dateUploaded>2023-09-06T22:15:27-0800</dateUploaded>
+    <dateSysMetadataModified>2023-09-06T22:15:27-0800</dateSysMetadataModified>
     <originMemberNode>urn:node:ARCTIC</originMemberNode>
     <authoritativeMemberNode>urn:node:ARCTIC</authoritativeMemberNode>
-    <fileName>plot-orig.csv</fileName>
+    <fileName>site_data.csv</fileName>
 </ns3:systemMetadata>

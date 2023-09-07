@@ -18,8 +18,8 @@
         <blockedMemberNode>urn:node:mnUCSB1</blockedMemberNode>
     </replicationPolicy>
     <archived>false</archived>
-    <dateUploaded>2023-09-06T18:21:42-0800</dateUploaded>
-    <dateSysMetadataModified>2023-09-06T18:21:42-0800</dateSysMetadataModified>
+    <dateUploaded>2023-09-06T22:14:48-0800</dateUploaded>
+    <dateSysMetadataModified>2023-09-06T22:14:48-0800</dateSysMetadataModified>
     <originMemberNode>urn:node:ARCTIC</originMemberNode>
     <authoritativeMemberNode>urn:node:ARCTIC</authoritativeMemberNode>
     <fileName>plotobs.csv</fileName>
