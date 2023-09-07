@@ -1,5 +1,16 @@
 #!/bin/bash
 
+init() {
+    mkdir -p ".dip"
+}
+
+check_dip() {
+    # Check if we are in an existing DIP-enabled directory. 
+    # If not, exit.
+    # Later, this should traverse upwards looking for parents
+    [[ ! -d .dip ]] && echo "Not in a DIP directory. Run from the root of a dip directory, or run 'dip init'." && exit
+}
+
 store() {
     file=$1
     [[ -z "$file" ]] && echo "File must be provided." && exit
@@ -72,6 +83,7 @@ cat-sysmeta() {
 }
 
 POSITIONAL_ARGS=()
+check_dip
 
 while [[ $# -gt 0 ]]; do
 case $1 in
@@ -111,9 +123,13 @@ case $1 in
     shift # past argument
     listtags
     ;;
+    -i|--init)
+    shift # past argument
+    init
+    ;;
     -h|--help)
     shift # past argument
-    echo "$0 [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid]"
+    echo "$0 [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]"
     exit
     ;;
     -*|--*)
