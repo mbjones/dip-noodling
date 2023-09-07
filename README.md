@@ -105,10 +105,26 @@ package-1-example
     └── survey_data.csv
 ```
 
-## Annotation syntax
+## Some command and annotation syntax
+
+```sh
+$ dip --help
+dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]
+```
+
+```sh
+$ dip --list-tags
+7becd1b7e758b87c25dba4357b2bd298ba0e14dbe546ce88b108696fd93ba6c1 doi:10.18738/XYZ
+7129a7fac461d084afc4476e6b72156fef11b3784286cf698742fb3a6ba7e5f2 ORE1
+123ea45d21c9025a3d0f02de4088d4cb4e7eeb6246748edd883945b430b4a05d P3
+b2b5c5e08b48339246cd935a1a810c3030518a369c170d8693e59d5a5b58feab P2
+fb4b3be4ad5fbba57436cc5327391df21802cfc8c14d1db1ab22fb32010189b2 P4
+8b1dd9de5a651508fed4c36dfb38fba591217c6fb177de0ec6f622ceb13f855c EML1
+7a1c82e3a1414dd90304cff20098bd0cc94a2134f77ae703b75c1020d4f49ed4 P1
+```
 
 ```json
-$ cat-object 7becd1b7e758b87c25dba4357b2bd298ba0e14dbe546ce88b108696fd93ba6c1
+$ dip --cat 7becd1b7e758b87c25dba4357b2bd298ba0e14dbe546ce88b108696fd93ba6c1
 {
   "@context": {
     "so": "http://schema.org/",
@@ -127,7 +143,7 @@ $ cat-object 7becd1b7e758b87c25dba4357b2bd298ba0e14dbe546ce88b108696fd93ba6c1
 ```
 
 ```json
-$ cat-object f6b5c3fd3082a3c483a705c1ab7988fe690e47232063fc6a70e5cba0ab37968d
+$ dip --cat f6b5c3fd3082a3c483a705c1ab7988fe690e47232063fc6a70e5cba0ab37968d
 {
   "@context": {
     "so": "http://schema.org/",
@@ -146,7 +162,7 @@ $ cat-object f6b5c3fd3082a3c483a705c1ab7988fe690e47232063fc6a70e5cba0ab37968d
 ```
 
 ```json
-$ cat-object 7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e
+$ dip --cat 7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e
 {
   "@context": {
     "so": "http://schema.org/",
