@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:systemMetadata xmlns:ns2="http://ns.dataone.org/service/types/v1" xmlns:ns3="http://ns.dataone.org/service/types/v2.0">
+    <serialVersion>1</serialVersion>
+    <identifier>P1</identifier>
+    <formatId>text/csv</formatId>
+    <size>153211</size>
+    <checksum algorithm="SHA-256">7a1c82e3a1414dd90304cff20098bd0cc94a2134f77ae703b75c1020d4f49ed4</checksum>
+    <submitter>http://orcid.org/0000-0003-0077-4738</submitter>
+    <rightsHolder>http://orcid.org/0000-0003-0077-4738</rightsHolder>
+    <accessPolicy>
+        <allow>
+            <subject>public</subject>
+            <permission>read</permission>
+        </allow>
+    </accessPolicy>
+    <replicationPolicy replicationAllowed="false" numberReplicas="0">
+        <blockedMemberNode>urn:node:KNB</blockedMemberNode>
+        <blockedMemberNode>urn:node:mnUCSB1</blockedMemberNode>
+    </replicationPolicy>
+    <archived>false</archived>
+    <dateUploaded>2023-09-06T18:21:42-0800</dateUploaded>
+    <dateSysMetadataModified>2023-09-06T18:21:42-0800</dateSysMetadataModified>
+    <originMemberNode>urn:node:ARCTIC</originMemberNode>
+    <authoritativeMemberNode>urn:node:ARCTIC</authoritativeMemberNode>
+    <fileName>plotobs.csv</fileName>
+</ns3:systemMetadata>

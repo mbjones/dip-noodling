@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:systemMetadata xmlns:ns2="http://ns.dataone.org/service/types/v1" xmlns:ns3="http://ns.dataone.org/service/types/v2.0">
+    <serialVersion>1</serialVersion>
+    <identifier>P2</identifier>
+    <formatId>text/csv</formatId>
+    <size>1638</size>
+    <checksum algorithm="SHA-256">b2b5c5e08b48339246cd935a1a810c3030518a369c170d8693e59d5a5b58feab</checksum>
+    <submitter>http://orcid.org/0000-0003-0077-4738</submitter>
+    <rightsHolder>http://orcid.org/0000-0003-0077-4738</rightsHolder>
+    <accessPolicy>
+        <allow>
+            <subject>public</subject>
+            <permission>read</permission>
+        </allow>
+    </accessPolicy>
+    <replicationPolicy replicationAllowed="false" numberReplicas="0">
+        <blockedMemberNode>urn:node:KNB</blockedMemberNode>
+        <blockedMemberNode>urn:node:mnUCSB1</blockedMemberNode>
+    </replicationPolicy>
+    <archived>false</archived>
+    <dateUploaded>2023-09-06T18:22:02-0800</dateUploaded>
+    <dateSysMetadataModified>2023-09-06T18:22:02-0800</dateSysMetadataModified>
+    <originMemberNode>urn:node:ARCTIC</originMemberNode>
+    <authoritativeMemberNode>urn:node:ARCTIC</authoritativeMemberNode>
+    <fileName>site_data.csv</fileName>
+</ns3:systemMetadata>
