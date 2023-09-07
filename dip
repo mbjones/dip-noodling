@@ -83,11 +83,11 @@ cat-sysmeta() {
 }
 
 POSITIONAL_ARGS=()
-check_dip
 
 while [[ $# -gt 0 ]]; do
 case $1 in
     -s|--store)
+    check_dip
     FILE="$2"
     PID=$3
     FORMAT=$4
@@ -99,6 +99,7 @@ case $1 in
     exit
     ;;
     -c|--cat)
+    check_dip
     CID="$2"
     shift # past argument
     shift # past value
@@ -106,6 +107,7 @@ case $1 in
     exit
     ;;
     -m|--meta)
+    check_dip
     PID="$2"
     shift # past argument
     shift # past value
@@ -113,6 +115,7 @@ case $1 in
     exit
     ;;
     -t|--tag)
+    check_dip
     CID=$2
     TAG="$3"
     shift # past argument
@@ -120,6 +123,7 @@ case $1 in
     tag ${CID} ${TAG}
     ;;
     -l|--list-tags)
+    check_dip
     shift # past argument
     listtags
     ;;
@@ -129,7 +133,7 @@ case $1 in
     ;;
     -h|--help)
     shift # past argument
-    echo "$0 [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]"
+    echo "dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]"
     exit
     ;;
     -*|--*)
@@ -143,4 +147,3 @@ case $1 in
 esac
 done
 
-set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
