@@ -109,8 +109,12 @@ package-1-example
 
 ```sh
 $ dip --help
-dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]
+dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-o|--list-objects] [-c|--cat cid] [-m|--meta pid] [-i|--init]
 ```
+
+All of those commands work, and put the files and objects in the right places. The major item that is missing is
+generating and storing the annotation files for the blobs, tree, and package structures. I simulated that for now 
+by manually writing out example annotation files in JSON-LD and adding them to the store.
 
 ```sh
 $ dip --list-tags
@@ -176,4 +180,24 @@ $ dip --cat 7dd8c63363ace47dc97a34eeef6042b6023a43adb8ee36e4305b3917d545648e
   "prov:atLocation": "raw/site_data.csv"
 }
 ```
+
+## Procedural notes
+
+- Walking a package starts top down from the PID for the package
+    - Find and read the `Dataset` annotation CID from the PID tag
+    - Recurse through each member of the package (referenced by CID) and read and parse it to further descend
+
+- Building a package starts bottom up
+    - For each folder, starting at the deepest folder in the tree and recursing to parents
+        - For each of the files in the folder (note this can be fully parallelized for each file)
+            - Store an object by calculating the cid hash and putting it in objects dir named with cid
+            - If you know the PID, create a tag linking the PID to CID
+            - Generate or store sysmeta associated with the PID
+            - Create and store a file-annotation.json referencing the CID
+        - Create a folder-annotation.json listing all of the file and folder annotation cids that it contains
+        - if not at root, move to parent folder, and repeat loop (only process a parent folder after all of its child folders have been processed)
+    - Once root is reached, add datapackage-annotation.json that lists all of the file and folder annotations in the package
+        - Store that package annotation using its CID
+        - tag the package CID with its PID (e.g., a DOI)
+        - set the HEAD ref to the package CID
 

@@ -48,6 +48,11 @@ listtags() {
     cat ${tagdir}/*/*/*
 }
 
+listobjs() {
+    objdir=".dip/objects"
+    ls -1 ${objdir}/*/*/*
+}
+
 sysmeta() {
     file=${1}
     pid=$2
@@ -127,13 +132,18 @@ case $1 in
     shift # past argument
     listtags
     ;;
+    -o|--list-objects)
+    check_dip
+    shift # past argument
+    listobjs
+    ;;
     -i|--init)
     shift # past argument
     init
     ;;
     -h|--help)
     shift # past argument
-    echo "dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-c|--cat cid] [-m|--meta pid] [-i|--init]"
+    echo "dip [-s|--store file [pid [format]]] [-t|--tag cid tag] [-l|--list-tags] [-o|--list-objects] [-c|--cat cid] [-m|--meta pid] [-i|--init]"
     exit
     ;;
     -*|--*)
